@@ -9,5 +9,13 @@
 #app {
 	box-sizing: border-box;
 	padding: 2rem;
-	background-color: aliceblue;
+	background-color: #f0f8ff;
+}
+
+.error__msg,
+.loading__msg {
+	position: fixed;
+	right: 50%;
+	top: 30%;
+	transform: translate(50%, 0%);
 }

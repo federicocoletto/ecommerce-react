@@ -4,8 +4,8 @@
 	font-weight: 400;
 
 	color-scheme: light dark;
-	color: #fefefede;
-	background-color: #242424;
+	background-color: #fefefede;
+	color: #242424;
 }
 
 * {
@@ -39,7 +39,7 @@ h1 {
 
 .container {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(300px, .7fr));
+	grid-template-columns: repeat(auto-fill, minmax(280px, .6fr));
 	gap: 1em;
 	justify-content: center;
 }
@@ -54,7 +54,7 @@ h1 {
 }
 
 img {
-	max-height: 200px;
+	max-height: 160px;
 	object-fit: contain;
 }
 

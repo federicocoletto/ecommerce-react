@@ -1,8 +1,21 @@
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { postCartThunk } from "../../store/slices/cart.slice";
+
 /* eslint-disable react/prop-types */
 const ProductCard = ({ prod }) => {
 
-	const handleNavigateProdIdPage = () => { }
-	const handleAddCart = () => { }
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+	
+	const handleNavigateProdIdPage = () => {
+		navigate(`/product/${prod.id}`)
+	}
+	
+	const handleAddCart = (e) => { 
+		e.stopPropagation()
+		dispatch(postCartThunk(prod))
+	}
 
 
 	return (
