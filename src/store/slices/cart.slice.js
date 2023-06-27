@@ -24,6 +24,7 @@ const base_URL = "https://e-commerce-api-v2.academlo.tech/api/v1/cart";
 // get
 export const getCartThunk = () => (dispatch) => {
 	const url = base_URL;
+
 	axios
 		.get(url, getConfigAuth())
 		.then((res) => dispatch(setCartG(res.data)))
@@ -31,17 +32,36 @@ export const getCartThunk = () => (dispatch) => {
 };
 
 // post
-export const postCartThunk = (prod) => (dispatch) => {
+export const postCartThunk = (prod, quantity = 1) => (dispatch) => {
 	const url = base_URL;
+
 	const data = {
-		quantity: 1,
+		// si no ponemos algo con :, 
+		quantity,
 		productId: prod.id,
 	};
+
 	axios
-		.get(url, data, getConfigAuth())
+		.post(url, data, getConfigAuth())
+		.then((res) => {
+			const obj = {
+				...res.data,
+				product: prod,
+			};
+			console.log(res.data);
+			dispatch(addProductCartG(obj));
+		})
+		.catch((err) => console.log(err));
+};
+
+// delete
+export const deleteCartThunk = (id) => (dispatch) => {
+	const url = `${base_URL}/${id}`;
+	axios
+		.delete(url, getConfigAuth())
 		.then((res) => {
 			console.log(res.data)
-			dispatch(addProductCartG(res.data))
+			dispatch(deleteProductCartG(id))
 		})
 		.catch((err) => console.log(err));
 };

@@ -1,14 +1,27 @@
+import { useDispatch } from "react-redux";
+import { deleteCartThunk, postCartThunk } from "../../store/slices/cart.slice";
+
 /* eslint-disable react/prop-types */
 const ProductDescription = ({prod, quantity, setQuantity}) => {
 
+	const dispatch = useDispatch()
+
 	const handleMinus = () => {
 		if (quantity >= 1) {
-			setQuantity(quantity - 1)
-		} // * else deleteCartThunk
+			setQuantity((state) => state + 1)
+		} else {
+			dispatch(deleteCartThunk(prod.id))
+		}
 	}
+
 	const handlePlus = () => {
-		setQuantity(quantity + 1)
+		setQuantity((state) => state + 1)
 	}
+
+	const handleAddToCart = () => {
+		dispatch(postCartThunk(prod, quantity))
+	}
+
 	return (
 		<>
 			<header className="productId__info">
@@ -42,7 +55,9 @@ const ProductDescription = ({prod, quantity, setQuantity}) => {
 					</div>
 				</div>
 				<div className="productId__addToCart">
-					<button className="productId__addToCart-btn">Add to cart <i className="fa-solid fa-cart-shopping"></i></button>
+					<button className="productId__addToCart-btn" onClick={handleAddToCart}>Add to cart
+						<i className="fa-solid fa-cart-shopping"></i>
+					</button>
 				</div>
 			</section>
 		</>

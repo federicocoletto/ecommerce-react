@@ -9,6 +9,8 @@ import { getAllProductsThunk } from './store/slices/products.slice'
 import ProductIdPage from './pages/ProductIdPage'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
+import CartPage from './pages/CartPage'
+import { getCartThunk } from './store/slices/cart.slice'
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
 	
 	useEffect(() => {
 		dispatch(getAllProductsThunk())
+		dispatch(getCartThunk())
 	}, []);
 
 	return (
@@ -26,6 +29,7 @@ function App() {
 				<Route path='/product/:id' element={<ProductIdPage />} />
 				<Route path='/register' element={<RegisterPage />} />
 				<Route path='/login' element={<LoginPage />} />
+				<Route path='/cart' element={<CartPage />} />
 			</Routes>
 		</div>
 	)
