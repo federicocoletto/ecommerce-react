@@ -6,12 +6,12 @@ const ProductCard = ({ prod }) => {
 
 
 	return (
-		<article className="product" onClick={handleNavigateProdIdPage}>
+		<article id="product__card" onClick={handleNavigateProdIdPage}>
 			<header className="product__header">
-				<div className="product__img-container">
+				<div className="img__container product">
 					<img className="product__img" src={prod.images[0].url} alt="" />
 				</div>
-				<div className="product__img-container">
+				<div className="img__container">
 					<img className="product__img" src={prod.images[1].url} alt="" />
 				</div>
 			</header>

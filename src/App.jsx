@@ -16,7 +16,7 @@ function App() {
 	}, []);
 
 	return (
-		<div className='app'>
+		<div id='app'>
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Home />} />
