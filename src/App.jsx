@@ -11,6 +11,7 @@ import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import CartPage from './pages/CartPage'
 import { getCartThunk } from './store/slices/cart.slice'
+import PurchasesPage from './pages/PurchasesPage'
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
 				<Route path='/register' element={<RegisterPage />} />
 				<Route path='/login' element={<LoginPage />} />
 				<Route path='/cart' element={<CartPage />} />
+				<Route path='/purchases' element={<PurchasesPage />} />
 			</Routes>
 		</div>
 	)

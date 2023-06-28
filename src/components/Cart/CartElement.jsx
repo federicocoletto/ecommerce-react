@@ -7,21 +7,22 @@ import { useEffect, useState } from "react";
 const CartElement = ({ prod }) => {
 
 	const dispatch = useDispatch()
+	const [quantity, setQuantity] = useState(0);
 
 	const handleDelete = () => {
 		dispatch(deleteCartThunk(prod.id))
 	}
 
 	const handleMinus = () => {
-		console.log(prod.quantity + 1)
-		if (prod.quantity > 1) {
-			dispatch(updateCartThunk(prod, prod.quantity - 1))
-		} else {
-			const confirmAlert = window.confirm(`Are you sure you want to erease ${prod.product.title} from your cart`)
-			if (confirmAlert) {
-				dispatch(deleteCartThunk(prod.id))
-			}
-		}
+		setQuantity(prod.quantity - 1)
+		// if (prod.quantity > 1) {
+		// 	dispatch(updateCartThunk(prod, prod.quantity - 1))
+		// } else {
+		// 	const confirmAlert = window.confirm(`Are you sure you want to erease ${prod.product.title} from your cart`)
+		// 	if (confirmAlert) {
+		// 		dispatch(deleteCartThunk(prod.id))
+		// 	}
+		// }
 	}
 
 	const handlePlus = () => {
