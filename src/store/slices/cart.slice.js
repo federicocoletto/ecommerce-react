@@ -11,11 +11,24 @@ const cartSlice = createSlice({
 		deleteProductCartG: (state, action) => {
 			return state.filter((prod) => prod.id !== action.payload);
 		},
+		updateProductCartG: (state, action) => {
+			return state.map((prod) => {
+				if (prod.id !== action.payload) {
+					return prod;
+				} else {
+					return action.payload;
+				}
+			});
+		},
 	},
 });
 
-export const { setCartG, addProductCartG, deleteProductCartG } =
-	cartSlice.actions;
+export const {
+	setCartG,
+	addProductCartG,
+	deleteProductCartG,
+	updateProductCartG,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
 
@@ -32,27 +45,29 @@ export const getCartThunk = () => (dispatch) => {
 };
 
 // post
-export const postCartThunk = (prod, quantity = 1) => (dispatch) => {
-	const url = base_URL;
+export const postCartThunk =
+	(prod, quantity = 1) =>
+	(dispatch) => {
+		const url = base_URL;
 
-	const data = {
-		// si no ponemos algo con :, 
-		quantity,
-		productId: prod.id,
+		const data = {
+			// si no ponemos algo con :,
+			quantity,
+			productId: prod.id,
+		};
+
+		axios
+			.post(url, data, getConfigAuth())
+			.then((res) => {
+				const obj = {
+					...res.data,
+					product: prod,
+				};
+				console.log(res.data);
+				dispatch(addProductCartG(obj));
+			})
+			.catch((err) => console.log(err));
 	};
-
-	axios
-		.post(url, data, getConfigAuth())
-		.then((res) => {
-			const obj = {
-				...res.data,
-				product: prod,
-			};
-			console.log(res.data);
-			dispatch(addProductCartG(obj));
-		})
-		.catch((err) => console.log(err));
-};
 
 // delete
 export const deleteCartThunk = (id) => (dispatch) => {
@@ -60,8 +75,23 @@ export const deleteCartThunk = (id) => (dispatch) => {
 	axios
 		.delete(url, getConfigAuth())
 		.then((res) => {
-			console.log(res.data)
-			dispatch(deleteProductCartG(id))
+			console.log(res.data);
+			dispatch(deleteProductCartG(id));
+		})
+		.catch((err) => console.log(err));
+};
+
+// put
+export const updateCartThunk = (prod, qnt) => (dispatch) => {
+	const url = `${base_URL}/${prod.id}`;
+	const data = {
+		quantity: qnt,
+	};
+	axios
+		.put(url, data, getConfigAuth())
+		.then((res) => {
+			console.log(res.data);
+			dispatch(updateProductCartG(prod));
 		})
 		.catch((err) => console.log(err));
 };
