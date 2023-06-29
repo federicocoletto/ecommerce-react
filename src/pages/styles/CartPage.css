@@ -20,6 +20,13 @@
 	border-bottom-right-radius: .1em;
 }
 
+.product__card.cart__element {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .product__img.cart__img {
 	opacity: 1;
 	position: static;
@@ -46,19 +53,19 @@
 	grid-column: 1/3;
 	padding-right: 1em;
 	opacity: .8;
-	font-size: 1.1rem;
+	font-size: 18px;
 }
 
 .product__value.brand.cartprod,
 .product__value.total.cartprod {
 	width: 130%;
 	padding-left: .4em;
-	font-size: 1.3rem;
+	font-size: 22px;
 	font-weight: 600;
 }
 
 .cartprod__body button {
-	font-size: 1rem;
+	font-size: 18px;
 	text-align: end;
 }
 

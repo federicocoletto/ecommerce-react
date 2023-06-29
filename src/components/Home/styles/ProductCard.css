@@ -1,11 +1,8 @@
 .product__card {
 	background-color: #fff;
-	height: 44em;
+	min-height: 44em;
 	font-size: 13px;
-	/* border: 1px solid black; */
-	/* box-shadow: 0 1px 9px 1px #2226; */
 	padding: 1.5em;
-	/* border-radius: .85em; */
 	position: relative;
 	transition: transform .32s ease;
 	border-bottom: 1px solid #aaa ;

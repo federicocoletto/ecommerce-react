@@ -29,7 +29,7 @@ const CartElement = ({ prod }) => {
 	}
 
 	return (
-		<article className="product__card">
+		<article className="product__card cart__element">
 			<header className="product__header">
 				<aside className="img__container">
 					<img className="product__img cart__img" src={prod.product?.images[0].url} alt="" />

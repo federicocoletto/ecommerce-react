@@ -11,11 +11,11 @@
 	flex-direction: column;
 	gap: 2em;
 	padding: 3em 1.5em;
+	margin: 0 auto;
+	width: 100%;
 }
 
 /* ¿ CARROUSEL */
-#carrousel {}
-
 .product__info.carrousel {
 	grid-column: span 3;
 	height: 100%;
