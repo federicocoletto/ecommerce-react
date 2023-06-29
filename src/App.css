@@ -6,9 +6,10 @@
 
 #app {
 	box-sizing: border-box;
-	background-color: var(--off-white);
+	background-color: var(--sea-salt);
 	position: relative;
 	padding-top: 120px;
+	min-height: 100vh;
 }
 
 /* ? Common classes */

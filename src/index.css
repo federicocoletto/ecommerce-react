@@ -14,9 +14,6 @@
 	--coral-pink: #EF8275;
 	--giants-orange: #fe5d26;
 
-	background-color: var(--off-black);
-	color: var(--off-white);
-
 	/* z-index */
 	--z-navbar-container: 10000;
 }
