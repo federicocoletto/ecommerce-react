@@ -12,6 +12,7 @@ import LoginPage from './pages/LoginPage'
 import CartPage from './pages/CartPage'
 import { getCartThunk } from './store/slices/cart.slice'
 import PurchasesPage from './pages/PurchasesPage'
+import ProtectedRoutes from './pages/ProtectedRoutes'
 
 function App() {
 
@@ -30,8 +31,12 @@ function App() {
 				<Route path='/product/:id' element={<ProductIdPage />} />
 				<Route path='/register' element={<RegisterPage />} />
 				<Route path='/login' element={<LoginPage />} />
-				<Route path='/cart' element={<CartPage />} />
-				<Route path='/purchases' element={<PurchasesPage />} />
+
+				{/* Protected Routes */}
+				<Route element={<ProtectedRoutes />}>
+					<Route path='/cart' element={<CartPage />} />
+					<Route path='/purchases' element={<PurchasesPage />} />
+				</Route>
 			</Routes>
 		</div>
 	)

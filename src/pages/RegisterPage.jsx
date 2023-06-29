@@ -6,7 +6,7 @@ import useAuth from "../hooks/useAuth";
 const RegisterPage = () => {
 
 	const { register, handleSubmit, reset } = useForm()
-	const {registerUser} = useAuth()
+	const { registerUser } = useAuth()
 
 	const submit = (data) => {
 		const url = 'https://e-commerce-api-v2.academlo.tech/api/v1/users'

@@ -7,12 +7,12 @@ const ProductCard = ({ prod }) => {
 
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	
+
 	const handleNavigateProdIdPage = () => {
 		navigate(`/product/${prod.id}`)
 	}
-	
-	const handleAddCart = (e) => { 
+
+	const handleAddCart = (e) => {
 		e.stopPropagation()
 		dispatch(postCartThunk(prod))
 	}
