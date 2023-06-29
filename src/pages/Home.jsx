@@ -51,7 +51,7 @@ const Home = () => {
 				</div>
 			</header>
 
-			<div id="cards__container">
+			<div className="cards__container">
 				{products
 					?.filter(cb_filterByCategory)
 					.filter(cb_filterByPrice)

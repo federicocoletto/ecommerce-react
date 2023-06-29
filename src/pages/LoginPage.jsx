@@ -17,16 +17,16 @@ const LoginPage = () => {
 	}
 
 	return (
-		<form onSubmit={handleSubmit(submit)} className='register__form'>
+		<form onSubmit={handleSubmit(submit)} className='register__form login'>
 			<div className='register__item'>
 				<label className='register__label' htmlFor="email">Email</label>
-				<input {...register('email')} className='register__input' type="text" />
+				<input {...register('email')} className='register__input' type="text" placeholder="email" />
 			</div>
 			<div className='register__item'>
 				<label className='register__label' htmlFor="password">Password</label>
-				<input {...register('password')} className='register__input' type="password" />
+				<input {...register('password')} className='register__input' type="password" placeholder="password" />
 			</div>
-			<button>Log in →</button>
+			<button className="register__button">Log in</button>
 		</form>
 	)
 };

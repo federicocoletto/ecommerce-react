@@ -21,7 +21,7 @@ const ProductCard = ({ prod }) => {
 
 
 	return (
-		<article id="product__card">
+		<article className="product__card">
 			<header className="product__header">
 				<div className="img__container product">
 					<img

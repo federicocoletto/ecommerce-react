@@ -16,5 +16,6 @@
 
 .error__msg,
 .loading__msg {
-	transform: translate(50%, 0%);
+	/* transform: translate(50%, 0%); */
+	padding: 0 .5em;
 }

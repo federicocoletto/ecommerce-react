@@ -1,4 +1,4 @@
-#product__card {
+.product__card {
 	background-color: #fff;
 	height: 44em;
 	font-size: 13px;
@@ -29,6 +29,9 @@
 	height: 40%;
 }
 
+.img__container {
+	padding: 1.2em;
+}
 .img__container.product {
 	position: absolute;
 	padding: 1.2em;

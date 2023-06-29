@@ -13,7 +13,7 @@ const cartSlice = createSlice({
 		},
 		updateProductCartG: (state, action) => {
 			return state.map((prod) => {
-				if (prod.id !== action.payload) {
+				if (prod.id !== action.payload.id) {
 					return prod;
 				} else {
 					return action.payload;
@@ -82,16 +82,20 @@ export const deleteCartThunk = (id) => (dispatch) => {
 };
 
 // put
-export const updateCartThunk = (prod, qnt) => (dispatch) => {
+export const updateCartThunk = (prod, quantity) => (dispatch) => {
 	const url = `${base_URL}/${prod.id}`;
 	const data = {
-		quantity: qnt,
+		quantity: quantity
 	};
 	axios
 		.put(url, data, getConfigAuth())
 		.then((res) => {
+			const obj = {
+				...res.data,
+				product: prod.product,
+			};
 			console.log(res.data);
-			dispatch(updateProductCartG(prod));
+			dispatch(updateProductCartG(obj));
 		})
 		.catch((err) => console.log(err));
 };

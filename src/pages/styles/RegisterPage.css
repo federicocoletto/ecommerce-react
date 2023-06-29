@@ -11,7 +11,7 @@
 	width: 70%;
 	height: 70%;
 	padding: 1em;
-	border: 2px solid #66384a;
+	border: 2px solid var(--boder);
 
 	display: flex;
 	flex-direction: column;
@@ -25,24 +25,29 @@
 	background-color: var(--quinacridone-magenta);
 }
 
+.register__form.login {
+	height: 35%;
+	justify-content: center;
+}
+
 .register__item {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: .5em;
-	border-bottom: 2px solid #66384a;
+	border-bottom: 2px solid var(--border);
 	padding-bottom: 1.2em;
 }
 
 .register__input {
 	width: 100%;
-	border: 1px solid #66384a;
+	border: 1px solid var(--border);
 	font-weight: 400;
 }
 
 .register__input::placeholder {
 	font-style: italic;
-	color: #66384a;
+	color: var(--border);
 	font-weight: 400;
 }
 
@@ -51,7 +56,7 @@
 	margin-top: .7em;
 	width: 100%;
 	padding: .5em 0;
-	border: 2px solid #66384a;
+	border: 2px solid var(--border);
 	font-weight: 700;
 	font-size: .9rem;
 	font-family: 'Rubik', sans-serif;

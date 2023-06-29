@@ -21,7 +21,7 @@ const ProductInfo = ({ product }) => {
 				/>
 			</article>
 			<footer className="product__info similar-products">
-				<h2>Similar products</h2>
+				<h2 className="similar__h2">Similar products</h2>
 				<SimilarProducts product={product} />
 			</footer>
 		</>

@@ -8,7 +8,7 @@ const ProductDescription = ({prod, quantity, setQuantity}) => {
 
 	const handleMinus = () => {
 		if (quantity >= 1) {
-			setQuantity((state) => state + 1)
+			setQuantity((state) => state - 1)
 		} else {
 			dispatch(deleteCartThunk(prod.id))
 		}
@@ -33,11 +33,10 @@ const ProductDescription = ({prod, quantity, setQuantity}) => {
 			</section>
 			<section className="productId__cart">
 				<div className="productId__price">
-					<h5 className="product__label price">Price</h5>
-					<h3 className="product__value price">${prod?.price}</h3>
+					<h5 className="productId__label price">Price</h5>
+					<h3 className="productId__value price">${prod?.price}</h3>
 				</div>
 				<div className="productId__quantity">
-					<h5 className="product__label quantity">Quantity</h5>
 					<div className="quantity__buttons">
 						<button className="quantity__minus" onClick={handleMinus}>
 							<i>
